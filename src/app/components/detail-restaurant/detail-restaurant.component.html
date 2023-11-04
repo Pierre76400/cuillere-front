@@ -1,0 +1,39 @@
+<div class="row mb-1 mr-0 custom-border">
+  
+  <!--  Details article-->
+    <div class="col-md-5 custom-border-right mb-1 mt-1 ">
+      <div class="col" *ngFor="let res of restaurantDetailDto">
+        <div class="row">
+          <div class="col-md-1"><i class="fas fa-info-circle blue-color"></i></div>
+          <div class="col-md-11">{{ res.adresse }}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-1"><i class="fas fa-info-circle blue-color"></i></div>
+          <div class="col-md-11">{{ res.nom }}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-1"><i class="fas fa-dollar-sign blue-color"></i></div>
+          <div class="col-md-11">{{ res.vegetarien }}</div>
+        </div>
+        <div class="col-md-10">
+            <div class="row">
+              <table class="table">
+                  <thead>
+                    <th>libelle</th><th>categoriePlat</th><th>libelleCategoriePlat</th><th>libelleCategoriePlat</th>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let plat of res.plats">
+                      <td>{{plat?.libelle }}</td>
+                      <td>{{plat?.categoriePlat }}</td>
+                      <td>{{plat?.libelleCategoriePlat }}</td>
+                      <td>{{plat?.prix }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  
+  

@@ -1,0 +1,38 @@
+<div class="container mt-2">
+    <ng-container >
+      <div class="card">
+        <div class="card-header">List des restaurants</div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+            <tr>
+            <th>ADRESSE</th><th>NOM</th><th>VEGETARIEN</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let restaurant of restaurants">
+              <td>{{restaurant.adresse}}</td>
+              <td>{{restaurant.nom}}</td>
+              <td>
+              <button class="btn btn-success" >
+                <i [class]="restaurant.vegetarien?'fa fa-check':'fa fa-circle'"></i>
+              </button>
+            </td>
+            <td>
+              <button (click) = "restaurantDetails(restaurant.id)" class = "btn btn-primary" style="margin-left: 10px"> View</button>
+              <button (click) = "DonnerNote(restaurant.id)" class = "btn btn-primary" style="margin-left: 10px"> Donnner un Avis</button>
+            </td>
+            </tr>
+            </tbody>
+          </table>
+       
+        </div>
+      </div>
+    </ng-container>
+    <div class="row mb-3" *ngIf="restaurants.length">
+      <div class=" col-md-12 text-center">
+        <app-pagination></app-pagination>
+      </div>
+    </div>
+  </div>
+  
