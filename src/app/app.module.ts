@@ -17,6 +17,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FlickrService } from './flickr.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -39,9 +40,10 @@ import { FlickrService } from './flickr.service';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
-  providers: [FlickrService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

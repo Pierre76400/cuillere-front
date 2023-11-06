@@ -19,7 +19,7 @@ export class MenuComponent implements OnInit {
       {
         id: '11',
         titre: 'Page Accueil',
-        icon: '',
+        icon: 'fas fa-home',
         url: 'home'
       }
     ]
