@@ -1,7 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable, catchError, throwError } from 'rxjs';
 import { PlatDto } from 'src/app/models/PlatDto';
 import { RestaurantDetailDto } from 'src/app/models/RestaurantDetailDto';
+import { RestaurantDto } from 'src/app/models/RestaurantDto';
+import { RestaurantService } from 'src/app/services/restaurant.service';
 
 @Component({
   selector: 'app-detail-restaurant',
@@ -9,23 +12,31 @@ import { RestaurantDetailDto } from 'src/app/models/RestaurantDetailDto';
   styleUrls: ['./detail-restaurant.component.scss']
 })
 export class DetailRestaurantComponent implements OnInit {
-  id?: number;
+  restaurantDetailDto!: RestaurantDetailDto;
+  plats!: Array<PlatDto>;
+  id?: number | undefined;
 
-
-  restaurantDetailDto: Array<RestaurantDetailDto> = [
-    {id:1,adresse:"1 rue du lac",nom:"Le coq de la maison blanche",vegetarien:false,plats:[{libelle:"Oeufs mayo",categoriePlat:"ENT",
-    libelleCategoriePlat:"Entrée",prix:3.2 }] },
-    {id:2,adresse:"3 rue du St Anne",nom:"Wakazi",vegetarien:false,plats:[{libelle:"Boeuf bourguignon",categoriePlat:"PLA",
-    libelleCategoriePlat:"Plat",prix:13.2 }]},
-    {id:3,adresse:"32 allée de Paris",nom:"Le loucher ben",vegetarien:false,plats:[{libelle:"Ile flottante",categoriePlat:"DES",
-    libelleCategoriePlat:"Dessert",prix:5.2}]},
-    {id:4,adresse:"11 avenue du tertre",nom:"L''herbe folle",vegetarien:true,plats:[{libelle:"Eclair au chocolat",categoriePlat:"BOI",
-    libelleCategoriePlat:"Boisson",prix:4.2 }]}
-  ];
-
-   constructor(private route: ActivatedRoute) { }
+   constructor(private route: ActivatedRoute, private restaurantService : RestaurantService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
-  }
+    if (this.id) {
+      this.restaurantService.getRestaurantsById(this.id)
+        .subscribe({
+          next: (data) => {
+            this.restaurantDetailDto=data
+
+          }
+        });
+       
+    }
+
+    this.restaurantService.getPlats(this.id) .subscribe({
+      next: (data) => {
+        this.plats=data
+
+      }
+    });
+    
+}
 }

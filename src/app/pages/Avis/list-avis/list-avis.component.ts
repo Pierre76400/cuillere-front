@@ -1,18 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable, catchError, throwError } from 'rxjs';
 import { AvisDto } from 'src/app/models/AvisDto';
+import { AvisService } from 'src/app/services/avis.service';
 
 @Component({
   selector: 'app-list-avis',
   templateUrl: './list-avis.component.html',
   styleUrls: ['./list-avis.component.scss']
 })
-export class ListAvisComponent {
-  avis: Array<AvisDto>=[
-    {commentaire:'Génial',auteur:"Pierre",note:5.1,dateCreation:'2020-03-05'},
-    {commentaire:'Bof',auteur:"Alfred",note:2.1,dateCreation:'2020-08-05'},
-    {commentaire:'Bien',auteur:"Nicolas",note:4.1,dateCreation:'2004-03-05'},
-    {commentaire:'Assez bien',auteur:"Anne",note:4.1,dateCreation:'2001-03-05'},
-  ]
+export class ListAvisComponent implements OnInit{
+  avis! : Observable<Array<AvisDto>>;
+  constructor(private avisService : AvisService){}
+  
+  ngOnInit(): void {
+    this.getAllAvis();
+  }
 
+  getAllAvis(){
+    this.avis=this.avisService.getAvis().pipe(
+      catchError(err => {
+        return throwError(err);
+      })
+    );
+
+  }
 
 }

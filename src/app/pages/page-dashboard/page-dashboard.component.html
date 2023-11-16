@@ -12,14 +12,16 @@
       </div>
       <div class="card col-md-10 pl-0 pr-0 backgroung-grey border-none">
         <div class="col pl-0 pr-0 d-flex flex-column justify-content-between">
-        <div class="card p-3 min-height-80 mb-2">
-            <app-header></app-header>
-          </div>
+        
           <div class="card mb-2" style="min-height: 480px">
+            <app-loader></app-loader>
             <router-outlet></router-outlet>
           </div>
           <div class="card min-height-80">
-            footer
+            <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+              © 2023 Copyright:
+              <span class="text-reset fw-bold">SOFTEAM</span>
+            </div>
           </div>
         </div>
       </div>

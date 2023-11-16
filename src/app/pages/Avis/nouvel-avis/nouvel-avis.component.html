@@ -1,38 +1,33 @@
 <div class="col mb-3">
     <div class="col-md-12">
       <div class="col-md-12 mb-3 mt-3">
-        <h2>Nouvelle Avis</h2>
+        <h2>Nouveau Avis</h2>
       </div>
       <div class="col-md-12">
-        <form>
+        <form [formGroup]="newAvisFormGroup" (ngSubmit)="handleSaveCustomer()">
           <div class="row mb-3">
             <div class="col">
-              <input type="text" class="form-control" placeholder="commentaire" name="Commentaire" >
+              <input type="text" formControlName="commentaire" class="form-control" placeholder="commentaire" name="Commentaire" >
             </div>
           </div>
           <div class="row mb-3">
             <div class="col">
-              <input type="text" class="form-control" placeholder="auteur" name="Auteur" >
+              <input type="text" formControlName="auteur" class="form-control" placeholder="auteur" name="Auteur" >
             </div>
           </div>
           <div class="row mb-3">
             <div class="col">
-              <input type="text" class="form-control" placeholder="note" name="Note" >
+              <ngb-rating [max]="5" formControlName="note"  [readonly]="false"></ngb-rating>
             </div>
           </div>
+          <ng-container>
+            <div class="mb-2">
+              <label>NOM DU RESTAURANT :</label>
+              <label><strong>{{ restaurant.nom }}</strong></label>
+            </div>
+          </ng-container>
         </form>
       </div>
     </div>
-    <div class="col-md-12 text-right">
-      <button class="btn btn-danger mr-3" >
-        <i class="fas fa-ban"></i>&nbsp;
-        Annuler
-      </button>
-      <button class="btn btn-primary">
-        <i class="fas fa-save"></i>&nbsp;
-        Enregitrer
-      </button>
-    </div>
-  
   </div>
   

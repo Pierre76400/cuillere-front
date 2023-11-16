@@ -52,12 +52,12 @@ export class MenuComponent implements OnInit {
           icon: 'fas fa-star',
           url: 'avis'
         },
-        {
+     /*   {
           id: '32',
           titre: 'Nouvel Avis',
           icon: 'fas fa-star',
           url: 'nouvel-avis'
-        }
+        }*/
       ]
     },
   /*  {

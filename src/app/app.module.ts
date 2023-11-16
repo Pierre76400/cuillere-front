@@ -7,17 +7,17 @@ import { PageDashboardComponent } from './pages/page-dashboard/page-dashboard.co
 import { RestaurantsComponent } from './pages/restaurants/restaurants.component';
 import { ListAvisComponent } from './pages/Avis/list-avis/list-avis.component';
 import { NouvelAvisComponent } from './pages/Avis/nouvel-avis/nouvel-avis.component';
-import { PlatCategotriesComponent } from './pages/plat-categotries/plat-categotries.component';
-import { PlatsComponent } from './pages/plats/plats.component';
 import { MenuComponent } from './components/menu/menu.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { DetailRestaurantComponent } from './components/detail-restaurant/detail-restaurant.component';
-import { PaginationComponent } from './components/pagination/pagination.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FlickrService } from './flickr.service';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxStarsModule } from 'ngx-stars';
+import { LoaderComponent } from './components/loader/loader.component';
+import { NgOptimizedImage } from '@angular/common';
 
 
 @NgModule({
@@ -27,13 +27,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RestaurantsComponent,
     ListAvisComponent,
     NouvelAvisComponent,
-    PlatCategotriesComponent,
-    PlatsComponent,
     MenuComponent,
     HeaderComponent,
     DetailRestaurantComponent,
-    PaginationComponent,
-    HomeComponent
+    HomeComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +39,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    NgOptimizedImage
   ],
   providers: [],
   bootstrap: [AppComponent]

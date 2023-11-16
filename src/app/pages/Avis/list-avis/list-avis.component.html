@@ -10,7 +10,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let av of avis">
+            <tr *ngFor="let av of avis | async">
               <td>{{av.auteur}}</td>
               <td>{{av.commentaire}}</td>
               <td>{{av.note}}</td>
@@ -21,10 +21,5 @@
         </div>
       </div>
     </ng-container>
-    <div class="row mb-3" *ngIf="avis.length">
-      <div class=" col-md-12 text-center">
-        <app-pagination></app-pagination>
-      </div>
-    </div>
   </div>
   
