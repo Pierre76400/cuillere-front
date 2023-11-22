@@ -39,12 +39,11 @@ export class NouvelAvisComponent implements OnInit{
   }
 
 
-  handleSaveCustomer() {
+  handleSaveAvis() {
     let avis:AvisCreationDto=this.newAvisFormGroup.value;
     avis.idRestaurant = this.restaurant.id
     this.avisService.saveAvis(avis).subscribe({
       next : data=>{
-        alert("Customer has been successfully saved!");
         this.router.navigateByUrl("/avis");
       },
       error : err => {
