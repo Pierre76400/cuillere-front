@@ -1,10 +1,15 @@
 # Installation et configuration CuillereFront 
 
  1-Installation et configuration la version  18 du nodejs avec version npm 9
+ 
  2- Installation du angular cli avec cette commande: npm install -g @angular/cli
+ 
  3-Installation IDE pour importer projet (Visual Studio Code ou Intellij...)
+ 
  4- Installation  des dépendence en lancant cette commande: npm install
+ 
  5- Lancer cette commande ng serve pour exécuter le projet
+ 
  6- Ouvrir navigateur et taper cette url: http://localhost:4200/
 
 
