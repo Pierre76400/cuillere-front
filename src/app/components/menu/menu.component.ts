@@ -94,7 +94,6 @@ export class MenuComponent implements OnInit {
   }
 
   navigate(menu: Menu): void {
-    console.log(this.lastSelectedMenu);
     if (this.lastSelectedMenu) {
       this.lastSelectedMenu.active = false;
     }
