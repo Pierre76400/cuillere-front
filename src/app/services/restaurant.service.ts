@@ -5,6 +5,7 @@ import {environment} from "../../environments/environment";
 import { RestaurantDto } from '../models/RestaurantDto';
 import { RestaurantDetailDto } from '../models/RestaurantDetailDto';
 import { PlatDto } from '../models/PlatDto';
+import { RechercheRestaurantDto } from '../models/RechercheRestaurantDto';
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +16,11 @@ export class RestaurantService {
     
   }
 
-  public getRestaurants():Observable<Array<RestaurantDetailDto>>{
-    return this.http.get<Array<RestaurantDetailDto>>(environment.backendHost+"/restaurants")
+  public getRestaurants():Observable<Array<RestaurantDto>>{
+    return this.http.get<Array<RestaurantDto>>(environment.backendHost+"/restaurants")
   }
-  public searchRestaurants(nomRestaurant : string):Observable<Array<RestaurantDetailDto>>{
-    return this.http.get<Array<RestaurantDetailDto>>(environment.backendHost+"/restaurants/_search?nomRestaurant="+nomRestaurant)
+  public searchRestaurants(nomRestaurant : string):Observable<RechercheRestaurantDto>{
+    return this.http.get<RechercheRestaurantDto>(environment.backendHost+"/restaurants/_search?nomRestaurant="+nomRestaurant)
   }
   public getRestaurantsById(idRestaurant : any):Observable<RestaurantDetailDto>{
     return this.http.get<RestaurantDetailDto>(environment.backendHost+"/restaurants/"+idRestaurant)

@@ -19,6 +19,6 @@ export class AvisService {
     return this.http.get<Array<AvisDto>>(environment.backendHost+"/avis")
   }
   public saveAvis(AvisDto: AvisCreationDto):Observable<AvisCreationDto>{
-    return this.http.post<AvisDto>(environment.backendHost+"/avis",AvisDto);
+    return this.http.post<AvisCreationDto>(environment.backendHost+"/avis",AvisDto);
   }
 }
