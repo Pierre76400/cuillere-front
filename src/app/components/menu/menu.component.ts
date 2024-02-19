@@ -12,9 +12,9 @@ export class MenuComponent implements OnInit {
   public menuProperties: Array<Menu> = [
     {
     id: '1',
-    titre: 'Tableau de bord',
-    icon: 'fas fa-chart-line',
-    url: '',
+    titre: 'Page Accueil',
+    icon: 'fas fa-home',
+    url: 'home'/*,
     sousMenu: [
       {
         id: '11',
@@ -22,14 +22,14 @@ export class MenuComponent implements OnInit {
         icon: 'fas fa-home',
         url: 'home'
       }
-    ]
+    ]*/
     
   },
   {
     id: '2',
     titre: 'Restaurants',
     icon: 'fas fa-utensils',
-    url: '',
+    url: 'restaurants'/*,
     sousMenu: [
       {
         id: '21',
@@ -38,13 +38,13 @@ export class MenuComponent implements OnInit {
         url: 'restaurants'
       }
     ]
-    
+    */
   },
     {
       id: '3',
       titre: 'Avis',
       icon: 'fas fa-star',
-      url: '',
+      url: 'avis'/*,
       sousMenu: [
         {
           id: '31',
@@ -58,7 +58,7 @@ export class MenuComponent implements OnInit {
           icon: 'fas fa-star',
           url: 'nouvel-avis'
         }*/
-      ]
+      //]
     },
   /*  {
       id: '4',
