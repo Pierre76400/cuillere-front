@@ -33,7 +33,7 @@ export class MenuComponent implements OnInit {
     sousMenu: [
       {
         id: '21',
-        titre: 'List des restaurants',
+        titre: 'Liste des restaurants',
         icon: 'fas fa-utensils',
         url: 'restaurants'
       }
@@ -48,7 +48,7 @@ export class MenuComponent implements OnInit {
       sousMenu: [
         {
           id: '31',
-          titre: 'List Avis',
+          titre: 'Liste Avis',
           icon: 'fas fa-star',
           url: 'avis'
         },

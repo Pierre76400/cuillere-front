@@ -13,7 +13,7 @@ export class HomeComponent  {
     {src: "../assets/images/pexels-chan-walrus-958545.jpg"},
     {src: "../assets/images/pexels-rdne-stock-project-6004758.jpg"},
     {src: "../assets/images/pexels-engin-akyurt-2673353.jpg"},
-    {src: "../assets/images/pexels-nesrin-danan-3193818.jpg"},
+    {src: "../assets/images/pexels-edward-eyer-1049626.jpg"},
     {src: "../assets/images/pexels-jer-chung-2059151.jpg"},
     {src: "../assets/images/pexels-valeriya-kobzar-8630151.jpg"},
     {src: "../assets/images/pexels-maarten-van-den-heuvel-2284166.jpg"}
@@ -21,9 +21,9 @@ export class HomeComponent  {
   ];
   
   constructor(config: NgbCarouselConfig) {
-    config.interval = 2000;
+    config.interval = 4000;
     config.keyboard = true;
-    config.pauseOnHover = true;
+    config.pauseOnHover = false;
   }
 
   
