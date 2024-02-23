@@ -5,4 +5,5 @@ export interface RestaurantDto {
  nom?: string; 
  adresse?: string;
  vegetarien?: boolean;  
+ nbAvis?: number;  
 }
