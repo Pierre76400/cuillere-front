@@ -1,0 +1,9 @@
+@font-face {
+    font-family: "PoliceReponseFaq"; /* Nom de la police */
+    src: url('/assets/fonts/ProtestRevolution-Regular.ttf') format('truetype'); /* Chemin vers votre fichier .ttf */
+}
+
+/* Utilisation de la police personnalisée dans la classe CSS "Y" */
+.faq_reponse {
+    font-family: "PoliceReponseFaq", sans-serif; /* Utilisez le nom de la police défini dans @font-face */
+}
