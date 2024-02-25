@@ -1,63 +1,88 @@
 <div class="container mt-2">
   <div class="card p-3 min-height-80 mb-2">
     <div class="row">
-    <div class="col-md-8">
-      <div *ngIf="searchFormGroup">
-        <form [formGroup]="searchFormGroup">
-          <div class="row g-2">
-            <div class="col-auto">
-              <input class="form-control" type="text"  formControlName="nomRestaurant" (keyup)="onKeyUpEvent($event)" placeholder="Recherche"  />
+      <div class="col-md-8">
+        <div *ngIf="searchFormGroup">
+          <form [formGroup]="searchFormGroup">
+            <div class="row g-2">
+              <div class="col-auto">
+                <input class="form-control" type="text" formControlName="nomRestaurant" (keyup)="onKeyUpEvent($event)"
+                  placeholder="Recherche" />
+              </div>
+              <div class="col-auto">
+                <button (click)="handleSearchRestaurants()" class="btn btn-outline-info">
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
             </div>
-            <div class="col-auto">
-              <button (click)="handleSearchRestaurants()" class="btn btn-outline-info">
-                <i class="fa fa-search"></i>
-              </button>
-            </div>
-          </div>
-    </form>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-  </div>
-    <ng-container >
-      <div class="card">
-        <div class="card-header">Liste des restaurants</div>
-        <div class="card-body">
-          <table class="table">
-            <thead>
-            <tr>
-            <th>ADRESSE</th><th>NOM</th><th>VEGETARIEN</th><th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let restaurant of restaurants">
-              <td>{{restaurant.adresse}}</td>
-              <td>{{restaurant.nom}}</td>
-              <td>
+
+  <div class="card">
+    <div class="card-header">Liste des restaurants</div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ADRESSE</th>
+            <th>NOM</th>
+            <th>VEGETARIEN</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let restaurant of restaurants">
+            <td>{{restaurant.adresse}}</td>
+            <td>{{restaurant.nom}}</td>
+            <td>
               <button [ngClass]="restaurant.vegetarien?'btn btn-success':'btn btn-danger'">
                 <i [class]="restaurant.vegetarien?'fa fa-check':'fa fa-times'"></i>
               </button>
             </td>
             <td>
-              <img  ngsrc="assets/images/pexels-marta-dzedyshko-2067560.jpg" width="83" height="90" ng-reflect-ng-src="assets/images/pexels-marta-dzedyshko-2067560.jpg" 
-              ng-reflect-width="83" ng-reflect-height="90" loading="lazy" fetchpriority="auto" ng-img="true" src="assets/images/pexels-marta-dzedyshko-2067560.jpg"> 
+              <img src="assets/images/pexels-marta-dzedyshko-2067560.jpg" width="83" height="90" loading="lazy"
+                fetchpriority="auto">
             </td>
             <td>
-              <button  [routerLink]="['/detail-restaurant/', restaurant.id]" class="btn btn-primary"><i class="far fa-list-alt"></i>&nbsp;Détails</button>
-              <button  [routerLink]="['/nouvel-avis/', restaurant.id]" class="btn btn-primary" style="margin-left: 10px"><i class="fas fa-star"></i>&nbsp; Donner un avis</button>
-
+              <button [routerLink]="['/detail-restaurant/', restaurant.id]" class="btn btn-primary"><i
+                  class="far fa-list-alt"></i>&nbsp;Détails</button>
+              <button [routerLink]="['/nouvel-avis/', restaurant.id]" class="btn btn-primary"
+                style="margin-left: 10px"><i class="fas fa-star"></i>&nbsp; Donner un avis</button>
             </td>
-            </tr>
-            </tbody>
-          </table>
-          <ul class="nav nav-pills">
-            <li *ngFor="let item of [].constructor(getTotalPages()); let page=index">
-              <a [ngClass]="page == currentPage ? 'btn-info' : 'btn-outline-info'" (click)="gotoPage(page)" class="btn  ms-1 mt-1">{{ page +1}}</a>
+          </tr>
+        </tbody>
+      </table>
+      <div class="nav-container">
+        <div class="d-flex align-items-center">
+
+          <button [disabled]="currentPage === 0" class="btn btn-primary me-2"
+            (click)="gotoPage(currentPage - 1)">Précédent</button>
+          <div class="spacer"></div>
+          <ul class="nav nav-pills pagination mb-0">
+            <li *ngIf="getPaginationStartIndex() > 0">
+              <a class="btn ms-1 mt-1" (click)="gotoPage(0)">1</a>
+              <span class="ms-1 mt-1">...</span>
             </li>
-          </ul>      
+            <li *ngFor="let page of getDisplayedPages()">
+              <a [ngClass]="page == currentPage ? 'btn-info' : 'btn-outline-info'" class="btn ms-1 mt-1"
+                (click)="gotoPage(page)">{{page+1}}</a>
+            </li>
+            <li *ngIf="getPaginationEndIndex() < getTotalPages() - 1">
+              <span class="ms-1 mt-1">...</span>
+              <a class="btn ms-1 mt-1" (click)="gotoPage(getTotalPages() - 1)">{{getTotalPages()}}</a>
+            </li>
+          </ul>
+          <div class="spacer"></div>
+          <button [disabled]="currentPage === getTotalPages()" class="btn btn-primary ms-2"
+            (click)="gotoPage(currentPage + 1)">Suivant</button>
         </div>
       </div>
-    </ng-container>
-   
+      <div *ngIf="nbResultat !== undefined" class="mb-2">
+        Nombre de résultats: {{ nbResultat }}
+      </div>
+    </div>
   </div>
-  
+</div>

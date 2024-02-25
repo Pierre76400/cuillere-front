@@ -14,11 +14,13 @@ import { RestaurantService } from 'src/app/services/restaurant.service';
 export class RestaurantsComponent implements OnInit {
 
 
-  pageSize!: number;
+  pageSize: number = 10;
   nomRestaurant: String = "";
   nbResultat!: any;
-  currentPage: number = 1;
+  currentPage!: number;
   pages: number[] = [];
+  paginationRange: number = 5;
+
 
   searchFormGroup: FormGroup | undefined;
   restaurants: RestaurantDto[] | undefined;
@@ -27,7 +29,7 @@ export class RestaurantsComponent implements OnInit {
   constructor(private restaurantService: RestaurantService, private fb: FormBuilder,
     private router: Router) { }
   ngOnInit(): void {
-
+    this.currentPage = 0;
     this.searchFormGroup = this.fb.group({
       nomRestaurant: this.fb.control("")
     });
@@ -57,8 +59,10 @@ export class RestaurantsComponent implements OnInit {
   }
 
   gotoPage(page: number) {
-    this.currentPage = page;
-    this.handleSearchRestaurants();
+    if (page >= 0 && page < this.getTotalPages()) {
+      this.currentPage = page;
+      this.handleSearchRestaurants();
+    }
   }
 
   getRestaurants() {
@@ -87,6 +91,23 @@ export class RestaurantsComponent implements OnInit {
   isPaginatedSearch(): boolean {
     // Vérifie si la pagination est activée (dans cet exemple, si pageSize est défini)
     return !!this.pageSize;
+  }
+  getPaginationStartIndex(): number {
+    let start = this.currentPage - Math.floor(this.paginationRange / 2);
+    return Math.max(start, 0);
+  }
+
+  // Méthode pour obtenir l'indice de fin de la plage de pagination
+  getPaginationEndIndex(): number {
+    let end = this.currentPage + Math.ceil(this.paginationRange / 2);
+    return Math.min(end, this.getTotalPages() - 1);
+  }
+
+  // Méthode pour obtenir la liste des pages à afficher
+  getDisplayedPages(): number[] {
+    const startIndex = this.getPaginationStartIndex();
+    const endIndex = this.getPaginationEndIndex();
+    return Array.from({ length: endIndex - startIndex + 1 }, (_, i) => startIndex + i);
   }
 
 }

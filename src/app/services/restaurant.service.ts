@@ -31,4 +31,5 @@ export class RestaurantService {
   public searchRestaurantsWithPagination(nomRestaurant: string, numPage: number, taillePage: number): Observable<RechercheRestaurantDto> {
     return this.http.get<RechercheRestaurantDto>(environment.backendHost + "/restaurants/_searchPagine?nomRestaurant=" + nomRestaurant + "&numPage=" + numPage + "&taillePage=" + taillePage)
   }
+
 }
