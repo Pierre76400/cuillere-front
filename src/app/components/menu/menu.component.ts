@@ -60,28 +60,14 @@ export class MenuComponent implements OnInit {
         }*/
       //]
     },
-  /*  {
+  
+    {
       id: '4',
-      titre: 'Plats',
-      icon: 'fas fa-utensils',
-      url: '',
-      sousMenu: [
-        {
-          id: '41',
-          titre: 'List Plats',
-          icon: 'fas fa-star',
-          url: 'plats'
-        }
-      ]
+      titre: 'FAQ',
+      icon: 'fas fa-question-circle ',
+      url: 'faq',
       
-    },*/
-  /*  {
-      id: '5',
-      titre: 'Plat Catégories',
-      icon: 'fas fa-utensils',
-      url: 'plat-categories',
-      
-    },*/
+    }
    
   ];
 

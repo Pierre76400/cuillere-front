@@ -18,6 +18,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { NgxStarsModule } from 'ngx-stars';
 import { LoaderComponent } from './components/loader/loader.component';
 import { NgOptimizedImage } from '@angular/common';
+import { FaqComponent } from './pages/faq/faq.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { NgOptimizedImage } from '@angular/common';
     HeaderComponent,
     DetailRestaurantComponent,
     HomeComponent,
-    LoaderComponent
+    LoaderComponent,
+    FaqComponent
   ],
   imports: [
     BrowserModule,
