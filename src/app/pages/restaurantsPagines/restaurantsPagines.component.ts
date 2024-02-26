@@ -30,7 +30,6 @@ export class RestaurantsPaginesComponent implements OnInit {
     this.searchFormGroup = this.fb.group({
       nomRestaurant: this.fb.control("")
     });
-    //this.handleSearchRestaurants();
   }
 
   handleSearchRestaurants() {
