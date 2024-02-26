@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageDashboardComponent } from './pages/page-dashboard/page-dashboard.component';
 import { RestaurantsComponent } from './pages/restaurants/restaurants.component';
+import { RestaurantsPaginesComponent } from './pages/restaurantsPagines/restaurantsPagines.component';
 import { ListAvisComponent } from './pages/Avis/list-avis/list-avis.component';
 import { NouvelAvisComponent } from './pages/Avis/nouvel-avis/nouvel-avis.component';
 import { DetailRestaurantComponent } from './components/detail-restaurant/detail-restaurant.component';
@@ -20,6 +21,10 @@ const routes: Routes = [
     {
       path:'restaurants',
       component:RestaurantsComponent
+    },
+    {
+      path:'restaurantsPagines',
+      component:RestaurantsPaginesComponent
     },
     {path: 'detail-restaurant/:id', component: DetailRestaurantComponent},
     {

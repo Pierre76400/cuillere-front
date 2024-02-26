@@ -39,6 +39,21 @@ export class MenuComponent implements OnInit {
       }
     ]
     */
+  },  
+  {
+    id: '21',
+    titre: 'Restaurants2',
+    icon: 'fas fa-utensils',
+    url: 'restaurantsPagines'/*,
+    sousMenu: [
+      {
+        id: '21',
+        titre: 'Liste des restaurants',
+        icon: 'fas fa-utensils',
+        url: 'restaurants'
+      }
+    ]
+    */
   },
     {
       id: '3',
