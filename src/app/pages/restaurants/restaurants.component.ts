@@ -13,7 +13,6 @@ import { RestaurantService } from 'src/app/services/restaurant.service';
 })
 export class RestaurantsComponent implements OnInit {
 
-
   pageSize: number = 10;
   nomRestaurant: String = "";
   nbResultat!: any;
@@ -44,6 +43,7 @@ export class RestaurantsComponent implements OnInit {
       this.restaurantService.searchRestaurantsWithPagination(nomRestaurant, this.currentPage, this.pageSize).subscribe(data => {
         this.restaurants = data.restaurants;
         this.nbResultat = data.nbResultat;
+        this.completerNbAvis();
       }, err => {
         return throwError(err);
       });
@@ -55,7 +55,19 @@ export class RestaurantsComponent implements OnInit {
         return throwError(err);
       });
     }
+  }
 
+  completerNbAvis(){
+    if(this.restaurants!=undefined){
+      for(let i=0;i<this.restaurants.length;i++){
+        let r=this.restaurants[i];
+        this.restaurantService.getAvis(r.id).subscribe(
+          data=> {
+            r.nbAvis=data.length;
+          }
+        );
+      }
+    }
   }
 
   gotoPage(page: number) {

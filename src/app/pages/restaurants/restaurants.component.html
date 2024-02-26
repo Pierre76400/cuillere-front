@@ -30,6 +30,7 @@
             <th>ADRESSE</th>
             <th>NOM</th>
             <th>VEGETARIEN</th>
+            <th>Nb avis</th>
             <th></th>
           </tr>
         </thead>
@@ -42,6 +43,7 @@
                 <i [class]="restaurant.vegetarien?'fa fa-check':'fa fa-times'"></i>
               </button>
             </td>
+            <td>{{restaurant.nbAvis}}</td>
             <td>
               <img src="assets/images/pexels-marta-dzedyshko-2067560.jpg" width="83" height="90" loading="lazy"
                 fetchpriority="auto">
