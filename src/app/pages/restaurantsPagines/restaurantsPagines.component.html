@@ -6,8 +6,7 @@
           <form [formGroup]="searchFormGroup">
             <div class="row g-2">
               <div class="col-auto">
-                <input class="form-control" type="text" formControlName="nomRestaurant" (keyup)="onKeyUpEvent($event)"
-                  placeholder="Recherche" />
+                <input class="form-control" type="text" formControlName="nomRestaurant" placeholder="Recherche" />
               </div>
               <div class="col-auto">
                 <button (click)="handleSearchRestaurants()" class="btn btn-outline-info">
