@@ -24,7 +24,6 @@ export class RestaurantsComponent implements OnInit {
     this.searchFormGroup = this.fb.group({
       nomRestaurant: this.fb.control("")
     });
-    this.getRestaurants();
     this.handleSearchRestaurants();
   }
 
@@ -36,29 +35,6 @@ export class RestaurantsComponent implements OnInit {
       return throwError(err);
     });
 
-  }
-
-  completerNbAvis() {
-    if (this.restaurants != undefined) {
-      for (let i = 0; i < this.restaurants.length; i++) {
-        let r = this.restaurants[i];
-        this.restaurantService.getAvis(r.id).subscribe(
-          data => {
-            r.nbAvis = data.length;
-          }
-        );
-      }
-    }
-  }
-
-  getRestaurants() {
-    this.restaurantService.getRestaurants().subscribe(data => {
-      this.restaurants = data;
-
-    })
-    catchError(err => {
-      return throwError(err);
-    })
   }
 
   onKeyUpEvent(event: any) {
