@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Menu} from './menu';
-import {Router} from '@angular/router';
+import { Menu } from './menu';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -11,79 +11,31 @@ export class MenuComponent implements OnInit {
 
   public menuProperties: Array<Menu> = [
     {
-    id: '1',
-    titre: 'Page Accueil',
-    icon: 'fas fa-home',
-    url: 'home'/*,
-    sousMenu: [
-      {
-        id: '11',
-        titre: 'Page Accueil',
-        icon: 'fas fa-home',
-        url: 'home'
-      }
-    ]*/
-    
-  },
-  {
-    id: '2',
-    titre: 'Restaurants',
-    icon: 'fas fa-utensils',
-    url: 'restaurants'/*,
-    sousMenu: [
-      {
-        id: '21',
-        titre: 'Liste des restaurants',
-        icon: 'fas fa-utensils',
-        url: 'restaurants'
-      }
-    ]
-    */
-  },  
-  {
-    id: '21',
-    titre: 'Restaurants2',
-    icon: 'fas fa-utensils',
-    url: 'restaurantsPagines'/*,
-    sousMenu: [
-      {
-        id: '21',
-        titre: 'Liste des restaurants',
-        icon: 'fas fa-utensils',
-        url: 'restaurants'
-      }
-    ]
-    */
-  },
+      id: '1',
+      titre: 'Page Accueil',
+      icon: 'fas fa-home',
+      url: 'home'
+    },
+    {
+      id: '2',
+      titre: 'Restaurants',
+      icon: 'fas fa-utensils',
+      url: 'restaurants'
+    },
     {
       id: '3',
       titre: 'Avis',
       icon: 'fas fa-star',
-      url: 'avis'/*,
-      sousMenu: [
-        {
-          id: '31',
-          titre: 'Liste Avis',
-          icon: 'fas fa-star',
-          url: 'avis'
-        },
-     /*   {
-          id: '32',
-          titre: 'Nouvel Avis',
-          icon: 'fas fa-star',
-          url: 'nouvel-avis'
-        }*/
-      //]
+      url: 'avis'
     },
-  
+
     {
       id: '4',
       titre: 'FAQ',
       icon: 'fas fa-question-circle ',
       url: 'faq',
-      
+
     }
-   
   ];
 
   private lastSelectedMenu: Menu | undefined;
@@ -103,5 +55,5 @@ export class MenuComponent implements OnInit {
     this.router.navigate([menu.url]);
   }
 
-  
+
 }
